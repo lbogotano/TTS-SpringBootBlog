@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Blog</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="webjars/bootstrap/4.5.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <div th:replace="/fragments/navbar :: navbar"></div>
+
+    <div class="container">
+      <div class="row">
+        <h1>Welcome to my Blog Site!</h1>
+      </div>
+      <div class="row">
+        <h3>Check out the posts below!</h3>
+      </div>
+      <div class="row">
+        <div th:each="blog:${posts}">
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title" th:text="${blog.title}"></h5>
+                <p th:text="${blog.author}"></p>
+                <p th:text="${blog.blogEntry}"></p>
+              </div>
+              <div class="card-footer"></div>
+              <!-- Get id for blog post and set it to variable id, then when rendered on html, make link go to specific blog post -->
+              <a href="#" th:href="@{blogposts/{id}(id=${blog.id})}">
+                <button class="btn btn-secondary">Edit this Post</button>
+              </a>
+              <a href="#" th:href="@{blogposts/delete/{id}(id=${blog.id})}">
+                <button class="btn btn-danger">Delete this Post</button>
+              </a>
+            </div>
+            <!-- End of .card -->
+          </div>
+          <!-- End of .col-sm -->
+        </div>
+        <!-- End of posts loop -->
+      </div>
+    </div>
+      <div class="row">
+        <div class="col-xl">
+          <a href="/blogposts/new">
+            <button class="btn btn-primary">Submit A New Blog Post</button>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+    <script src="webjars/popper.js/2.0.2/umd/popper.min.js"></script>
+    <script src="webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  </body>
+</html>

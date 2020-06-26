@@ -1,0 +1,26 @@
+html {
+  background-color:black;
+  padding: 0.5em 1em;
+  background-image: url(https://www.ewboats.com/wp-content/uploads/formidable/24/best-cool-backgrounds-hd-4.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  margin: 0 auto;
+  margin-top: 25px;
+  font-family: "Playfair Display", serif;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px lightblue;
+}
+h3 {
+  margin: 0 auto;
+  margin-bottom: 25px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+button {
+  margin: 15px 15px;
+}
+.row {
+  margin: 15px 15px;
+}

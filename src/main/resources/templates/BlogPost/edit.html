@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Blog</title>
+    <div th:replace="/fragments/styling :: head-style"></div>
+  </head>
+  <div th:replace="/fragments/navbar :: navbar"></div>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <p>Use the form below to edit a blog post:</p>
+        <!-- Change th action because edit serves just one individual blogpost -->
+        <form
+          action="#"
+          th:action="@{~/blogposts/update/{id}(id=${blogPost.id})}"
+          th:object="${blogPost}"
+          method="POST"
+        >
+          <div class="formGroup">
+            <label for="blogTitle">Title:</label>
+            <input type="text" name="blogTitle" th:field="*{title}" />
+          </div>
+          <div class="formGroup">
+            <label for="blogAuthor">Author:</label>
+            <input type="text" name="blogAuthor" th:field="*{author}" />
+          </div>
+          <div class="formGroup">
+            <label for="blogTitle">Blog Entry:</label>
+            <input type="text" name="blogEntry" th:field="*{blogEntry}" />
+          </div>
+          <button type="submit">Save your changes</button>
+        </form>
+      </div>
+    </div>
+
+    <div th:replace="/fragments/styling :: body-links"></div>
+  </body>
+</html>
